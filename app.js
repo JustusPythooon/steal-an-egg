@@ -1,32 +1,890 @@
 
-const BASE_PETS = [
- {id:'chicken',name:'Chicken',icon:'🐔',rarity:'Common',biome:'Forest',income:1,description:'Ein treuer Startbegleiter aus dem Wald.'},
- {id:'dog',name:'Dog',icon:'🐶',rarity:'Common',biome:'Forest',income:2,description:'Freundlich, schnell und immer bereit.'},
- {id:'bird',name:'Bird',icon:'🐦',rarity:'Uncommon',biome:'Forest',income:8,description:'Ein flinker Bewohner der Baumwipfel.'},
- {id:'owl',name:'Burrowing Owl',icon:'🦉',rarity:'Rare',biome:'Forest',income:35,description:'Klug, wachsam und überraschend selten.'},
- {id:'raccoon',name:'Raccoon',icon:'🦝',rarity:'Rare',biome:'Forest',income:45,description:'Der kleine Meisterdieb des Waldes.'},
- {id:'fox',name:'Fox',icon:'🦊',rarity:'Epic',biome:'Forest',income:180,description:'Elegant und unglaublich clever.'},
- {id:'frog',name:'Frog',icon:'🐸',rarity:'Common',biome:'Lake',income:3,description:'Quakt sich direkt in deine Sammlung.'},
- {id:'duck',name:'Duckling',icon:'🐤',rarity:'Common',biome:'Lake',income:5,description:'Klein, gelb und voller Energie.'},
- {id:'catfish',name:'Catfish',icon:'🐟',rarity:'Uncommon',biome:'Lake',income:12,description:'Ein geheimnisvoller Bewohner des Sees.'},
- {id:'turtle',name:'Turtle',icon:'🐢',rarity:'Rare',biome:'Lake',income:60,description:'Langsam unterwegs, stark im Einkommen.'},
- {id:'axolotl',name:'Axolotl',icon:'🪷',rarity:'Legendary',biome:'Lake',income:2400,description:'Eine legendäre und farbenfrohe Erscheinung.'},
- {id:'jerboa',name:'Jerboa',icon:'🐭',rarity:'Common',biome:'Desert',income:6,description:'Springt mühelos durch den heißen Sand.'},
- {id:'camel',name:'Camel',icon:'🐫',rarity:'Rare',biome:'Desert',income:75,description:'Ausdauernder König der Dünen.'},
- {id:'scorpion',name:'Scorpion',icon:'🦂',rarity:'Mythic',biome:'Desert',income:16000,description:'Gefährlich, selten und äußerst wertvoll.'},
- {id:'toucan',name:'Toucan',icon:'🦜',rarity:'Rare',biome:'Jungle',income:110,description:'Bunte Legende aus dem Blätterdach.'},
- {id:'chimp',name:'Chimpanzee',icon:'🐵',rarity:'Rare',biome:'Jungle',income:90,description:'Cleverer Kletterer mit Sammlerinstinkt.'},
- {id:'croc',name:'Crocodile',icon:'🐊',rarity:'Epic',biome:'Jungle',income:420,description:'Ein uralter Jäger im grünen Reich.'},
- {id:'gorilla',name:'Gorilla',icon:'🦍',rarity:'Legendary',biome:'Jungle',income:4800,description:'Legendäre Kraft aus dem Dschungel.'},
- {id:'walrus',name:'Walrus',icon:'🦭',rarity:'Epic',biome:'Snow',income:600,description:'Bleibt selbst im Eis ganz entspannt.'},
- {id:'polar',name:'Polar Bear',icon:'🐻‍❄️',rarity:'Legendary',biome:'Snow',income:7000,description:'Der mächtige Wächter des Schnees.'},
- {id:'mammoth',name:'Mammoth',icon:'🦣',rarity:'Mythic',biome:'Snow',income:42000,description:'Ein gigantischer Schatz aus uralter Zeit.'},
- {id:'lavafrog',name:'Lava Frog',icon:'🌋',rarity:'Epic',biome:'Volcano',income:850,description:'Heißer als jeder andere Frosch.'},
- {id:'bull',name:'Flaming Bull',icon:'🐂',rarity:'Legendary',biome:'Volcano',income:9500,description:'Ein brennender Koloss voller Energie.'},
- {id:'cerberus',name:'Cerberus',icon:'🐺',rarity:'Secret',biome:'Volcano',income:8000000,description:'Das ultimative Geheimnis des Vulkans.'},
- {id:'octopus',name:'Void Octopus',icon:'🐙',rarity:'Cosmic',biome:'Abyss',income:400000,description:'Kosmische Tentakel aus der Tiefe.'},
- {id:'dragon',name:'Rift Dragon',icon:'🐉',rarity:'Secret',biome:'Rift',income:12000000,description:'Eine eigene Demo-Legende aus dem Rift.'}
-];
+const PETS = [
+  // =========================================================
+  // FOREST
+  // =========================================================
+
+  {
+    id: "chicken",
+    name: "Chicken",
+    egg: "Chicken Egg",
+    rarity: "Common",
+    biome: "Forest",
+    category: "Regular",
+    income: null
+  },
+  {
+    id: "dog",
+    name: "Dog",
+    egg: "Dog Egg",
+    rarity: "Common",
+    biome: "Forest",
+    category: "Regular",
+    income: null
+  },
+  {
+    id: "bird",
+    name: "Bird",
+    egg: "Bird Egg",
+    rarity: "Uncommon",
+    biome: "Forest",
+    category: "Regular",
+    income: null
+  },
+  {
+    id: "burrowing-owl",
+    name: "Burrowing Owl",
+    egg: "Burrowing Owl Egg",
+    rarity: "Rare",
+    biome: "Forest",
+    category: "Regular",
+    income: null
+  },
+  {
+    id: "raccoon",
+    name: "Raccoon",
+    egg: "Raccoon Egg",
+    rarity: "Rare",
+    biome: "Forest",
+    category: "Regular",
+    income: null
+  },
+  {
+    id: "fox",
+    name: "Fox",
+    egg: "Fox Egg",
+    rarity: "Epic",
+    biome: "Forest",
+    category: "Regular",
+    income: null
+  },
+  {
+    id: "bear",
+    name: "Bear",
+    egg: "Bear Egg",
+    rarity: "Epic",
+    biome: "Forest",
+    category: "Regular",
+    income: null
+  },
+  {
+    id: "brr-brr-patapim",
+    name: "Brr Brr Patapim",
+    egg: "Brr Brr Patapim Egg",
+    rarity: "Legendary",
+    biome: "Forest",
+    category: "Regular",
+    income: null
+  },
+
+  // =========================================================
+  // LAKE
+  // =========================================================
+
+  {
+    id: "frog",
+    name: "Frog",
+    egg: "Frog Egg",
+    rarity: "Common",
+    biome: "Lake",
+    category: "Regular",
+    income: null
+  },
+  {
+    id: "duckling",
+    name: "Duckling",
+    egg: "Duckling Egg",
+    rarity: "Common",
+    biome: "Lake",
+    category: "Regular",
+    income: null
+  },
+  {
+    id: "catfish",
+    name: "Catfish",
+    egg: "Catfish Egg",
+    rarity: "Uncommon",
+    biome: "Lake",
+    category: "Regular",
+    income: null
+  },
+  {
+    id: "turtle",
+    name: "Turtle",
+    egg: "Turtle Egg",
+    rarity: "Rare",
+    biome: "Lake",
+    category: "Regular",
+    income: null
+  },
+  {
+    id: "trulimero-trulicina",
+    name: "Trulimero Trulicina",
+    egg: "Trulimero Trulicina Egg",
+    rarity: "Epic",
+    biome: "Lake",
+    category: "Regular",
+    income: null
+  },
+  {
+    id: "swan",
+    name: "Swan",
+    egg: "Swan Egg",
+    rarity: "Epic",
+    biome: "Lake",
+    category: "Regular",
+    income: null
+  },
+  {
+    id: "axolotl",
+    name: "Axolotl",
+    egg: "Axolotl Egg",
+    rarity: "Legendary",
+    biome: "Lake",
+    category: "Regular",
+    income: null
+  },
+  {
+    id: "leviathan",
+    name: "Leviathan",
+    egg: "Leviathan Egg",
+    rarity: "Cosmic",
+    biome: "Lake",
+    category: "Regular",
+    income: null
+  },
+
+  // =========================================================
+  // DESERT
+  // =========================================================
+
+  {
+    id: "jerboa",
+    name: "Jerboa",
+    egg: "Jerboa Egg",
+    rarity: "Common",
+    biome: "Desert",
+    category: "Regular",
+    income: null
+  },
+  {
+    id: "fennec",
+    name: "Fennec",
+    egg: "Fennec Egg",
+    rarity: "Uncommon",
+    biome: "Desert",
+    category: "Regular",
+    income: null
+  },
+  {
+    id: "camel",
+    name: "Camel",
+    egg: "Camel Egg",
+    rarity: "Rare",
+    biome: "Desert",
+    category: "Regular",
+    income: null
+  },
+  {
+    id: "tob-tobi-tob-tob",
+    name: "Tob Tobi Tob Tob",
+    egg: "Tob Tobi Tob Tob Egg",
+    rarity: "Epic",
+    biome: "Desert",
+    category: "Regular",
+    income: null
+  },
+  {
+    id: "snake",
+    name: "Snake",
+    egg: "Snake Egg",
+    rarity: "Legendary",
+    biome: "Desert",
+    category: "Regular",
+    income: null
+  },
+  {
+    id: "sand-spider",
+    name: "Sand Spider",
+    egg: "Sand Spider Egg",
+    rarity: "Mythic",
+    biome: "Desert",
+    category: "Regular",
+    income: null
+  },
+  {
+    id: "scorpion",
+    name: "Scorpion",
+    egg: "Scorpion Egg",
+    rarity: "Mythic",
+    biome: "Desert",
+    category: "Regular",
+    income: null
+  },
+  {
+    id: "royal-sphinx",
+    name: "Royal Sphinx",
+    egg: "Royal Sphinx Egg",
+    rarity: "Cosmic",
+    biome: "Desert",
+    category: "Regular",
+    income: null
+  },
+
+  // =========================================================
+  // JUNGLE
+  // =========================================================
+
+  {
+    id: "chimpanzee",
+    name: "Chimpanzee",
+    egg: "Chimpanzee Egg",
+    rarity: "Rare",
+    biome: "Jungle",
+    category: "Regular",
+    income: null
+  },
+  {
+    id: "toucan",
+    name: "Toucan",
+    egg: "Toucan Egg",
+    rarity: "Rare",
+    biome: "Jungle",
+    category: "Regular",
+    income: null
+  },
+  {
+    id: "crocodile",
+    name: "Crocodile",
+    egg: "Crocodile Egg",
+    rarity: "Epic",
+    biome: "Jungle",
+    category: "Regular",
+    income: null
+  },
+  {
+    id: "gorilla",
+    name: "Gorilla",
+    egg: "Gorilla Egg",
+    rarity: "Legendary",
+    biome: "Jungle",
+    category: "Regular",
+    income: null
+  },
+  {
+    id: "orangutini-ananassini",
+    name: "Orangutini Ananassini",
+    egg: "Orangutini Ananassini Egg",
+    rarity: "Legendary",
+    biome: "Jungle",
+    category: "Regular",
+    income: null
+  },
+  {
+    id: "spider",
+    name: "Spider",
+    egg: "Spider Egg",
+    rarity: "Mythic",
+    biome: "Jungle",
+    category: "Regular",
+    income: null
+  },
+  {
+    id: "tiger",
+    name: "Tiger",
+    egg: "Tiger Egg",
+    rarity: "Mythic",
+    biome: "Jungle",
+    category: "Regular",
+    income: null
+  },
+  {
+    id: "king-snake",
+    name: "King Snake",
+    egg: "King Snake Egg",
+    rarity: "Secret",
+    biome: "Jungle",
+    category: "Regular",
+    income: null
+  },
+
+  // =========================================================
+  // SNOW
+  // =========================================================
+
+  {
+    id: "penguin",
+    name: "Penguin",
+    egg: "Penguin Egg",
+    rarity: "Rare",
+    biome: "Snow",
+    category: "Regular",
+    income: null
+  },
+  {
+    id: "walrus",
+    name: "Walrus",
+    egg: "Walrus Egg",
+    rarity: "Epic",
+    biome: "Snow",
+    category: "Regular",
+    income: null
+  },
+  {
+    id: "polar-bear",
+    name: "Polar Bear",
+    egg: "Polar Bear Egg",
+    rarity: "Legendary",
+    biome: "Snow",
+    category: "Regular",
+    income: null
+  },
+  {
+    id: "sabertooth-tiger",
+    name: "Sabertooth Tiger",
+    egg: "Sabertooth Tiger Egg",
+    rarity: "Mythic",
+    biome: "Snow",
+    category: "Regular",
+    income: null
+  },
+  {
+    id: "mammoth",
+    name: "Mammoth",
+    egg: "Mammoth Egg",
+    rarity: "Mythic",
+    biome: "Snow",
+    category: "Regular",
+    income: null
+  },
+  {
+    id: "king-mammoth",
+    name: "King Mammoth",
+    egg: "King Mammoth Egg",
+    rarity: "Cosmic",
+    biome: "Snow",
+    category: "Regular",
+    income: null
+  },
+  {
+    id: "yeti",
+    name: "Yeti",
+    egg: "Yeti Egg",
+    rarity: "Secret",
+    biome: "Snow",
+    category: "Regular",
+    income: null
+  },
+  {
+    id: "ice-dragon",
+    name: "Ice Dragon",
+    egg: "Ice Dragon Egg",
+    rarity: "Eternal",
+    biome: "Snow",
+    category: "Regular",
+    income: null
+  },
+
+  // =========================================================
+  // VOLCANO
+  // =========================================================
+
+  {
+    id: "lava-gecko",
+    name: "Lava Gecko",
+    egg: "Lava Gecko Egg",
+    rarity: "Rare",
+    biome: "Volcano",
+    category: "Regular",
+    income: null
+  },
+  {
+    id: "lava-frog",
+    name: "Lava Frog",
+    egg: "Lava Frog Egg",
+    rarity: "Epic",
+    biome: "Volcano",
+    category: "Regular",
+    income: null
+  },
+  {
+    id: "flaming-bull",
+    name: "Flaming Bull",
+    egg: "Flaming Bull Egg",
+    rarity: "Legendary",
+    biome: "Volcano",
+    category: "Regular",
+    income: null
+  },
+  {
+    id: "lava-iguana",
+    name: "Lava Iguana",
+    egg: "Lava Iguana Egg",
+    rarity: "Legendary",
+    biome: "Volcano",
+    category: "Regular",
+    income: null
+  },
+  {
+    id: "chillin-chilli",
+    name: "Chillin Chilli",
+    egg: "Chillin Chilli Egg",
+    rarity: "Mythic",
+    biome: "Volcano",
+    category: "Regular",
+    income: null
+  },
+  {
+    id: "cerberus",
+    name: "Cerberus",
+    egg: "Cerberus Egg",
+    rarity: "Secret",
+    biome: "Volcano",
+    category: "Regular",
+    income: null
+  },
+  {
+    id: "phoenix",
+    name: "Phoenix",
+    egg: "Phoenix Egg",
+    rarity: "Eternal",
+    biome: "Volcano",
+    category: "Regular",
+    income: null
+  },
+  {
+    id: "lava-dragon",
+    name: "Lava Dragon",
+    egg: "Lava Dragon Egg",
+    rarity: "Eternal",
+    biome: "Volcano",
+    category: "Regular",
+    income: null
+  },
+
+  // =========================================================
+  // ABYSS OCEAN
+  // =========================================================
+
+  {
+    id: "parrotfish",
+    name: "Parrotfish",
+    egg: "Parrotfish Egg",
+    rarity: "Rare",
+    biome: "Abyss Ocean",
+    category: "Regular",
+    income: null
+  },
+  {
+    id: "swordfish",
+    name: "Swordfish",
+    egg: "Swordfish Egg",
+    rarity: "Epic",
+    biome: "Abyss Ocean",
+    category: "Regular",
+    income: null
+  },
+  {
+    id: "shark",
+    name: "Shark",
+    egg: "Shark Egg",
+    rarity: "Legendary",
+    biome: "Abyss Ocean",
+    category: "Regular",
+    income: null
+  },
+  {
+    id: "orca",
+    name: "Orca",
+    egg: "Orca Egg",
+    rarity: "Mythic",
+    biome: "Abyss Ocean",
+    category: "Regular",
+    income: null
+  },
+  {
+    id: "whale-shark",
+    name: "Whale Shark",
+    egg: "Whale Shark Egg",
+    rarity: "Cosmic",
+    biome: "Abyss Ocean",
+    category: "Regular",
+    income: null
+  },
+  {
+    id: "beluga-whale",
+    name: "Beluga Whale",
+    egg: "Beluga Whale Egg",
+    rarity: "Cosmic",
+    biome: "Abyss Ocean",
+    category: "Regular",
+    income: null
+  },
+  {
+    id: "kraken",
+    name: "Kraken",
+    egg: "Kraken Egg",
+    rarity: "Secret",
+    biome: "Abyss Ocean",
+    category: "Regular",
+    income: null
+  },
+  {
+    id: "el-maja",
+    name: "El Maja",
+    egg: "El Maja Egg",
+    rarity: "Eternal",
+    biome: "Abyss Ocean",
+    category: "Regular",
+    income: null
+  },
+
+  // =========================================================
+  // PREHISTORIC
+  // =========================================================
+
+  {
+    id: "dodo",
+    name: "Dodo",
+    egg: "Dodo Egg",
+    rarity: "Rare",
+    biome: "Prehistoric",
+    category: "Regular",
+    income: null
+  },
+  {
+    id: "pterodactyl",
+    name: "Pterodactyl",
+    egg: "Pterodactyl Egg",
+    rarity: "Legendary",
+    biome: "Prehistoric",
+    category: "Regular",
+    income: null
+  },
+  {
+    id: "ankylosaurus",
+    name: "Ankylosaurus",
+    egg: "Ankylosaurus Egg",
+    rarity: "Mythic",
+    biome: "Prehistoric",
+    category: "Regular",
+    income: null
+  },
+  {
+    id: "triceratops",
+    name: "Triceratops",
+    egg: "Triceratops Egg",
+    rarity: "Cosmic",
+    biome: "Prehistoric",
+    category: "Regular",
+    income: null
+  },
+  {
+    id: "bronto",
+    name: "Bronto",
+    egg: "Bronto Egg",
+    rarity: "Cosmic",
+    biome: "Prehistoric",
+    category: "Regular",
+    income: null
+  },
+  {
+    id: "t-rex",
+    name: "T-Rex",
+    egg: "T-Rex Egg",
+    rarity: "Secret",
+    biome: "Prehistoric",
+    category: "Regular",
+    income: null
+  },
+  {
+    id: "tralaledon",
+    name: "Tralaledon",
+    egg: "Tralaledon Egg",
+    rarity: "Secret",
+    biome: "Prehistoric",
+    category: "Regular",
+    income: null
+  },
+  {
+    id: "mosasaurus",
+    name: "Mosasaurus",
+    egg: "Mosasaurus Egg",
+    rarity: "Eternal",
+    biome: "Prehistoric",
+    category: "Regular",
+    income: null
+  },
+
+  // =========================================================
+  // COSMIC
+  // =========================================================
+
+  {
+    id: "centapede",
+    name: "Centapede",
+    egg: "Centapede Egg",
+    rarity: "Epic",
+    biome: "Cosmic",
+    category: "Regular",
+    income: null
+  },
+  {
+    id: "cosmic-gecko",
+    name: "Cosmic Gecko",
+    egg: "Cosmic Gecko Egg",
+    rarity: "Legendary",
+    biome: "Cosmic",
+    category: "Regular",
+    income: null
+  },
+  {
+    id: "cosmic-gorilla",
+    name: "Cosmic Gorilla",
+    egg: "Cosmic Gorilla Egg",
+    rarity: "Mythic",
+    biome: "Cosmic",
+    category: "Regular",
+    income: null
+  },
+  {
+    id: "la-vacca-saturno-saturnita",
+    name: "La Vacca Saturno Saturnita",
+    egg: "La Vacca Saturno Saturnita Egg",
+    rarity: "Cosmic",
+    biome: "Cosmic",
+    category: "Regular",
+    income: null
+  },
+  {
+    id: "cosmic-skeleton-boss",
+    name: "Cosmic Skeleton Boss",
+    egg: "Cosmic Skeleton Boss Egg",
+    rarity: "Secret",
+    biome: "Cosmic",
+    category: "Regular",
+    income: null
+  },
+  {
+    id: "cosmic-dragon",
+    name: "Cosmic Dragon",
+    egg: "Cosmic Dragon Egg",
+    rarity: "Secret",
+    biome: "Cosmic",
+    category: "Regular",
+    income: null
+  },
+  {
+    id: "eternal-lunar-dragon",
+    name: "Eternal Lunar Dragon",
+    egg: "Eternal Lunar Dragon Egg",
+    rarity: "Eternal",
+    biome: "Cosmic",
+    category: "Regular",
+    income: null
+  },
+  {
+    id: "unicorn",
+    name: "Unicorn",
+    egg: "Unicorn Egg",
+    rarity: "Divine",
+    biome: "Cosmic",
+    category: "Regular",
+    income: null
+  },
+
+  // =========================================================
+  // CHERRY BLOSSOM
+  // =========================================================
+
+  {
+    id: "crane",
+    name: "Crane",
+    egg: "Crane Egg",
+    rarity: "Epic",
+    biome: "Cherry Blossom",
+    category: "Regular",
+    income: null
+  },
+  {
+    id: "salamander",
+    name: "Salamander",
+    egg: "Salamander Egg",
+    rarity: "Legendary",
+    biome: "Cherry Blossom",
+    category: "Regular",
+    income: null
+  },
+  {
+    id: "red-panda",
+    name: "Red Panda",
+    egg: "Red Panda Egg",
+    rarity: "Mythic",
+    biome: "Cherry Blossom",
+    category: "Regular",
+    income: null
+  },
+  {
+    id: "snowy-owl",
+    name: "Snowy Owl",
+    egg: "Snowy Owl Egg",
+    rarity: "Cosmic",
+    biome: "Cherry Blossom",
+    category: "Regular",
+    income: null
+  },
+  {
+    id: "koi",
+    name: "Koi",
+    egg: "Koi Egg",
+    rarity: "Cosmic",
+    biome: "Cherry Blossom",
+    category: "Regular",
+    income: null
+  },
+  {
+    id: "stag",
+    name: "Stag",
+    egg: "Stag Egg",
+    rarity: "Secret",
+    biome: "Cherry Blossom",
+    category: "Regular",
+    income: null
+  },
+  {
+    id: "oni-tiger",
+    name: "Oni Tiger",
+    egg: "Oni Tiger Egg",
+    rarity: "Eternal",
+    biome: "Cherry Blossom",
+    category: "Regular",
+    income: null
+  },
+  {
+    id: "kitsune",
+    name: "Kitsune",
+    egg: "Kitsune Egg",
+    rarity: "Divine",
+    biome: "Cherry Blossom",
+    category: "Regular",
+    income: null
+  },
+
+  // =========================================================
+  // TITAN TEMPLE
+  // =========================================================
+
+  {
+    id: "spideron",
+    name: "Spideron",
+    egg: "Spideron Egg",
+    rarity: "Legendary",
+    biome: "Titan Temple",
+    category: "Regular",
+    income: null
+  },
+  {
+    id: "crustacia",
+    name: "Crustacia",
+    egg: "Crustacia Egg",
+    rarity: "Legendary",
+    biome: "Titan Temple",
+    category: "Regular",
+    income: null
+  },
+  {
+    id: "bladehide",
+    name: "Bladehide",
+    egg: "Bladehide Egg",
+    rarity: "Mythic",
+    biome: "Titan Temple",
+    category: "Regular",
+    income: null
+  },
+  {
+    id: "mantaris",
+    name: "Mantaris",
+    egg: "Mantaris Egg",
+    rarity: "Cosmic",
+    biome: "Titan Temple",
+    category: "Regular",
+    income: null
+  },
+  {
+    id: "rhinotaur",
+    name: "Rhinotaur",
+    egg: "Rhinotaur Egg",
+    rarity: "Cosmic",
+    biome: "Titan Temple",
+    category: "Regular",
+    income: null
+  },
+  {
+    id: "mutant-shark",
+    name: "Mutant Shark",
+    egg: "Mutant Shark Egg",
+    rarity: "Secret",
+    biome: "Titan Temple",
+    category: "Regular",
+    income: null
+  },
+  {
+    id: "gorilla-king",
+    name: "Gorilla King",
+    egg: "Gorilla King Egg",
+    rarity: "Eternal",
+    biome: "Titan Temple",
+    category: "Regular",
+    income: null
+  },
+  {
+    id: "nightflame",
+    name: "Nightflame",
+    egg: "Nightflame Egg",
+    rarity: "Divine",
+    biome: "Titan Temple",
+    category: "Regular",
+    income: null
+  },
+
+  // =========================================================
+  // RIFT
+  // =========================================================
+
+  {
+    id: "rift-eye",
+    name: "Rift Eye",
+    egg: "Rift Eye Egg",
+    rarity: "Legendary",
+    biome: "Rift",
+    category: "Rift",
+    income: null
+  },
+  {
+    id: "void-angler",
+    name: "Void Angler",
+    egg: "Void Angler Egg",
+    rarity: "Legendary",
+    biome: "Rift",
+    category: "Rift",
+    income: null
+  },
+  {
+    id: "voidmaw",
+    name: "Voidmaw",
+    egg: "Voidmaw Egg",
+    rarity: "Mythic",
+    biome: "Rift",
+    category: "Rift",
+    income: null
+  },
+  {
+    id: "riftwing",
+    name: "Riftwing",
+    egg: "Riftwing Egg",
+    rarity: "Mythic",
+    biome: "Rift",
+
 const RARITIES=['Common','Uncommon','Rare','Epic','Legendary','Mythic','Cosmic','Secret'];
 const COLORS={Common:'#aab0c0',Uncommon:'#4ade80',Rare:'#38bdf8',Epic:'#c084fc',Legendary:'#fb923c',Mythic:'#f43f8d',Cosmic:'#22d3ee',Secret:'#facc15'};
 const BIOMES={Forest:['🌲','#36c989'],Lake:['🌊','#38bdf8'],Desert:['🏜️','#fbbf24'],Jungle:['🌴','#22c55e'],Snow:['❄️','#a5f3fc'],Volcano:['🌋','#fb5d5d'],Abyss:['🌌','#6366f1'],Rift:['⚡','#d946ef']};

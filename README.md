@@ -35,3 +35,7 @@ Danach ist die App typischerweise unter `https://DEIN-NAME.github.io/egg-dex/` e
 ## Wichtiger Hinweis
 
 Daten werden lokal im jeweiligen Browser gespeichert. Nutze regelmäßig die Backup-Funktion. Dieses Projekt ist ein inoffizielles Fanprojekt und steht nicht in Verbindung mit Roblox oder den Erstellern des Spiels.
+
+
+## Einkommenswerte
+Bestätigte Basis-Einkommen sind für die im Community-Datenmodul dokumentierten Pets eingetragen. Bei neuen Event-, Rift-, Titan-Temple-, Monster- und Mecha-Pets ohne verlässlichen Wert zeigt die App „Noch nicht bestätigt“ statt einer erfundenen Zahl.
